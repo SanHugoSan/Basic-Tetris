@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
       displayShape();
     }
   });
-  //add Score
+  //add score
   function addScore() {
     for (let i = 0; i < 199; i += width) {
       const row = [
@@ -238,13 +238,14 @@ document.addEventListener("DOMContentLoaded", () => {
         i + 8,
         i + 9,
       ];
+
       if (row.every((index) => squares[index].classList.contains("taken"))) {
         score += 10;
         scoreDisplay.innerHTML = score;
         row.forEach((index) => {
           squares[index].classList.remove("taken");
           squares[index].classList.remove("tetromino");
-          square.style.backgroundColor = "";
+          squares[index].style.backgroundColor = "";
         });
         const squaresRemoved = squares.splice(i, width);
         squares = squaresRemoved.concat(squares);
@@ -252,7 +253,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-
   //game over
   function gameOver() {
     if (
